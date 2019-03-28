@@ -4,7 +4,10 @@
 // Package quote collects sayings about Data.
 package quote
 
-import "math/rand"
+import (
+	"math/rand"
+	"time"
+)
 
 var sayings = []string{
 	"Data is the new oil.",
@@ -20,5 +23,6 @@ func init() {
 
 // Data returns a random quote on data.
 func Data() string {
+	rand.Seed(time.Now().UTC().UnixNano())
 	return sayings[rand.Intn(size)]
 }
